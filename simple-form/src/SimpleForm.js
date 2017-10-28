@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-const SimpleForm = ({ handleSubmit }) => (
+const SimpleForm = ({ handleSubmit, pristine, reset, submitting }) => (
   <form onSubmit={handleSubmit}>
     <div>
       <label>First Name</label>
@@ -33,6 +33,37 @@ const SimpleForm = ({ handleSubmit }) => (
           Female
         </label>
       </div>
+    </div>
+    <div>
+      <label>Favorite Color</label>
+      <div>
+        <Field name="favoriteColor" component="select">
+          <option />
+          <option value="ff0000">Red</option>
+          <option value="00ff00">Green</option>
+          <option value="0000ff">Blue</option>
+        </Field>
+      </div>
+    </div>
+    <div>
+      <label htmlFor="employed">Employed</label>
+      <div>
+        <Field name="employed" id="employed" component="input" type="checkbox" />
+      </div>
+    </div>
+    <div>
+      <label>Notes</label>
+      <div>
+        <Field name="notes" component="textarea" />
+      </div>
+    </div>
+    <div>
+      <button type="submit" disabled={pristine || submitting}>
+        Submit
+      </button>
+      <button type="button" disabled={pristine || submitting} onClick={reset}>
+        Clear Values
+      </button>
     </div>
   </form>
 );
