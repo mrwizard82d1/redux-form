@@ -23,6 +23,9 @@ export default function validate(values) {
     errors.sex = 'Required';
   }
   
-  console.log(errors);
+  if (!existy(values.favoriteColor)) {
+    errors.favoriteColor = 'Required';
+  }
+  
   return errors;
 }
