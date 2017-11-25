@@ -1,5 +1,6 @@
 import React from 'react';
 import WizardFormFirstPage from './WizardFormFirstPage';
+import WizardFormSecondPage from './WizardFormSecondPage';
 
 class WizardForm extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class WizardForm extends React.Component {
     case 1:
       return <WizardFormFirstPage onSubmit={this.nextPage} />;
     case 2:
-      return 'Radagast the Brown';
+      return <WizardFormSecondPage onSubmit={this.nextPage} previousPage={this.prevPage} />;
     case 3:
       return 'Saruman the White';
     default:
